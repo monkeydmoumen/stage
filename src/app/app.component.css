@@ -1,0 +1,16 @@
+.min-h-screen {
+    position: relative;
+    z-index: 1; /* Ensure this is higher than the background effect */
+}
+
+
+/* If you have a global background effect, ensure its z-index is lower */
+.background-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Lowest z-index to stay behind all content */
+    pointer-events: none; /* Allows clicks to pass through to content */
+}

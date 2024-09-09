@@ -1,0 +1,29 @@
+.profile-card {
+    background: linear-gradient(135deg, #A7F542, #37B93C); /* Adjust gradient colors as needed */
+    color: #000000;/* Ensure text is readable on the green background */
+  }
+  
+  .profile-photo-container input[type="file"] {
+    margin-top: 0.5rem;
+  }
+  
+  .profile-details input,
+  .profile-details button {
+    margin-top: 0.5rem;
+  }
+  
+  .profile-details input {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: transparent;
+  }
+  
+  .profile-details button {
+    background-color: #0D7013;
+    color: #ffffff;
+  }
+  
+  .profile-details h2,
+  .profile-details p {
+    color: #ffffff; /* White text for better contrast */
+  }
+  

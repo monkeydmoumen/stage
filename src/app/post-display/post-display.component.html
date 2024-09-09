@@ -1,0 +1,97 @@
+<div class="post-container">
+  <div *ngFor="let post of filteredPosts" [ngClass]="getPostClass(post)" class="m-5">
+    <!-- Post Header -->
+    <div class="flex items-center mb-2">
+      <img src="https://via.placeholder.com/40" alt="User Picture" class="w-10 h-10 rounded-full mr-3">
+      <div>
+        <h4 class="font-semibold">{{ post.username }}</h4>
+        <p class="text-sm text-gray-500">{{ post.date | date:'MMM d, y, h:mm a' }}</p>
+      </div>
+    </div>
+
+    <!-- Post Content -->
+    <p class="mb-3">{{ post.content }}</p>
+
+    <!-- Media Container -->
+    <div *ngIf="post.images.length || post.documents.length" class="media-container">
+      <!-- Image Handling -->
+      <div *ngIf="post.images.length === 1" class="media-one">
+        <img [src]="post.images[0].url" class="media-image" (click)="openOverlay(post.images[0].url, 0, post.images)">
+      </div>
+
+      <div *ngIf="post.images.length === 2" class="media-two">
+        <img [src]="post.images[0].url" class="media-image" (click)="openOverlay(post.images[0].url, 0, post.images)">
+        <img [src]="post.images[1].url" class="media-image" (click)="openOverlay(post.images[1].url, 1, post.images)">
+      </div>
+
+      <div *ngIf="post.images.length === 3" class="media-three">
+        <img [src]="post.images[0].url" class="media-image large" (click)="openOverlay(post.images[0].url, 0, post.images)">
+        <div class="media-grid">
+          <img *ngFor="let image of post.images.slice(1, 3); let i = index" [src]="image.url" class="media-image small" (click)="openOverlay(image.url, i + 1, post.images)">
+        </div>
+      </div>
+
+      <div *ngIf="post.images.length === 4" class="media-four">
+        <div *ngFor="let image of post.images; let i = index" class="media-item">
+          <img [src]="image.url" class="media-image" (click)="openOverlay(image.url, i, post.images)">
+        </div>
+      </div>
+
+      <div *ngIf="post.images.length > 4" class="media-more">
+        <div *ngFor="let image of post.images.slice(0, 3); let i = index" class="media-item">
+          <img [src]="image.url" class="media-image" (click)="openOverlay(image.url, i, post.images)">
+        </div>
+        <div class="media-item">
+          <img [src]="post.images[3].url" class="media-image" (click)="openOverlay(post.images[3].url, 3, post.images)">
+          <div class="overlay" (click)="openOverlay(post.images[3].url, 3, post.images)">
+            <div class="overlay-content">+{{ post.images.length - 4 }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Content -->
+      <div class="document-container">
+        <div *ngFor="let document of post.documents" class="document-item">
+          <a [href]="document.url" target="_blank" download>
+            {{ document.name }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post Actions -->
+    <div class="post-actions flex mt-1">
+      <button (click)="likePost(post)" class="">
+        {{ post.likedBy.includes(currentUsername) ? '❤️' : '🤍' }} {{ post.likesCount }}
+      </button>
+      <button (click)="toggleComments(post.id)" class="">
+        {{ showComments[post.id] ? 'Hide Comments' : 'Comment' }}
+      </button>
+      <span class="" >{{ post.comments.length }} {{ post.comments.length === 1 ? 'Comment' : 'Comments' }}</span>
+    </div>
+    <!-- Comment Input Field -->
+    <div *ngIf="showComments[post.id]" class="mt-4">
+      <input [(ngModel)]="newCommentContent" 
+            placeholder="Write a comment..." 
+            class="w-full p-2 border rounded" />
+      <button (click)="addComment(post, newCommentContent)" 
+              class="mt-2 p-2 bg-blue-500 text-white rounded">
+        Submit
+      </button>
+    </div>
+
+    <!-- Comments Section -->
+    <div *ngIf="showComments[post.id]" class="mt-4">
+      <app-thread [comments]="post.comments" [postId]="post.id"></app-thread>
+    </div>
+  </div>
+</div>
+
+<!-- Image Overlay Component -->
+<app-image-overlay
+  [isVisible]="isOverlayVisible"
+  [currentImage]="currentImage"
+  [mediaItems]="mediaItems"
+  [currentIndex]="currentIndex"
+  (close)="closeOverlay()">
+</app-image-overlay>

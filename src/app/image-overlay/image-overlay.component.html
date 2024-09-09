@@ -1,0 +1,13 @@
+<div class="overlay" *ngIf="isVisible">
+  <div class="overlay-content">
+    <button class="prev-button" (click)="previousMedia()">&#10094;</button>
+    <ng-container *ngIf="mediaItems[currentIndex].type.startsWith('image')">
+      <img [src]="currentImage" alt="Media">
+    </ng-container>
+    <ng-container *ngIf="mediaItems[currentIndex].type.startsWith('video')">
+      <video [src]="currentImage" controls autoplay></video>
+    </ng-container>
+    <button class="next-button" (click)="nextMedia()">&#10095;</button>
+    <button class="close-button" (click)="closeOverlay()">Close</button>
+  </div>
+</div>

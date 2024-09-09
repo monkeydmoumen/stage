@@ -1,0 +1,94 @@
+/* General Layout Styles */
+.flex {
+    display: flex;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+
+   
+  .h-full {
+    height: 100%;
+  }
+  
+  .bg-white {
+    background-color: #ffffff; /* White background */
+  }
+  
+  .bg-light-green {
+    background-color: #f3f4f6; /* Light green background */
+  }
+  
+  .p-4 {
+    padding: 16px; /* Padding for content */
+  }
+  
+  /* app-friends styles */
+  app-friends {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .friends-list {
+    /* Example style for friends list */
+    background-color: #e0f4e5; /* Slightly darker light green for friends list */
+    border-right: 1px solid #d1d5db; /* Light gray border on the right */
+    padding: 10px;
+  }
+  
+  /* app-chat styles */
+  app-chat {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .chat-header {
+    background-color: #004d00; /* Dark green */
+    color: #ffffff; /* White text */
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    background-color: #f9f9f9; /* Light background for messages */
+    border-radius: 4px;
+    padding: 10px;
+    overflow-y: auto; /* Scrollable chat area */
+  }
+  
+  .chat-input {
+    display: flex;
+    align-items: center;
+  
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #d1d5db; /* Light border */
+    border-radius: 4px;
+  }
+  
+  .chat-input button {
+    background-color: #004d00; /* Dark green */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .chat-input button:hover {
+    background-color: #007bff; /* Greenish-blue */
+  }
+  
+  .chat-input button:active {
+    background-color: #003d00; /* Darker dark green */
+  }
+  

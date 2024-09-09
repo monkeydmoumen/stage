@@ -1,0 +1,65 @@
+/* Base button styles */
+button {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+/* Greenish Theme */
+.bg-green-500 {
+  background-color: #3b9d50; /* Medium green */
+}
+
+.bg-green-100 {
+  background-color: #d1f0d7; /* Very light green */
+}
+
+.text-green-500 {
+  color: #3b9d50; /* Medium green */
+}
+
+/* Button styles for different states */
+button.bg-green-500 {
+  background-color: #3b9d50; /* Medium green */
+  color: #ffffff; /* White text */
+}
+
+button.bg-green-500:hover {
+  background-color: #2b7a3e; /* Darker green for hover */
+}
+
+/* Card and comment-specific styles */
+.comment-container {
+  background-color: #f9f9f9; /* Light gray background for comments */
+  border-left: 2px solid #d1f5d7; /* Light green border for nesting indication */
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* Hover effect for comments */
+.comment-container:hover {
+  background-color: #d1f5d7; /* Light green on hover */
+}
+
+/* Comment text and author styles */
+.comment-body {
+  color: #2f4f2f; /* Darker green for comment text */
+}
+
+.comment-author {
+  color: #3b9d50; /* Greenish color for author name */
+}

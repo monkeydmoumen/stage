@@ -1,0 +1,49 @@
+<div class="add-post-container">
+  <!-- Post Content Input -->
+  <form [formGroup]="postForm" (ngSubmit)="submitPost()">
+    <textarea formControlName="postContent" placeholder="What's on your mind?" class="post-content"></textarea>
+
+    <!-- File Input Buttons -->
+    <div class="file-input-buttons">
+      <!-- Image/Video Input Button -->
+      <label for="media-file-input" class="file-input-button small">
+        <span class="plus-icon">+</span> Media
+        <input type="file" id="media-file-input" (change)="onImageVideoFileChange($event)" multiple accept="image/*,video/*" />
+      </label>
+
+      <!-- Document Input Button -->
+      <label for="document-file-input" class="file-input-button small">
+        <span class="plus-icon">+</span> Document
+        <input type="file" id="document-file-input" (change)="onDocumentFileChange($event)" multiple accept=".pdf,.txt,.doc,.docx" />
+      </label>
+    </div>
+
+    <!-- Role Selection (Visible only for Boss) -->
+    <div *ngIf="isBoss" class="role-selection">
+      <label *ngFor="let role of ['r1', 'r2', 'r3', 'r4']">
+        <input type="checkbox" [value]="role" [checked]="selectedRoles.includes(role)" (change)="onRoleSelectionChange($event)" />
+        {{ role }}
+      </label>
+    </div>
+
+    <!-- Selected Files Preview -->
+    <div class="selected-files-preview">
+      <div *ngFor="let file of selectedFiles" class="file-preview">
+        <img *ngIf="file.type.startsWith('image')" [src]="file.url" class="file-preview-img">
+        <video *ngIf="file.type.startsWith('video')" [src]="file.url" controls class="file-preview-video"></video>
+        <a *ngIf="file.type === 'application/pdf'" [href]="file.url" target="_blank" class="file-preview-doc">
+          PDF
+        </a>
+        <a *ngIf="file.type === 'text/plain'" [href]="file.url" target="_blank" class="file-preview-doc">
+          Text
+        </a>
+        <a *ngIf="file.type === 'application/msword' || file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'" [href]="file.url" target="_blank" class="file-preview-doc">
+          Doc
+        </a>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-button">Post</button>
+  </form>
+</div>

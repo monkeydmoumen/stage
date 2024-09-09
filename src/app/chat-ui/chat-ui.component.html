@@ -1,0 +1,9 @@
+<div class="flex h-screen">
+    <div class="w-1/3 h-full bg-light-green">
+      <app-friends (friendSelected)="onFriendSelected($event)"></app-friends>
+    </div>
+    <div class="w-2/3 h-full bg-white ">
+      <app-chat [recipient]="selectedFriend"></app-chat> <!-- Pass the selected friend -->
+    </div>
+  </div>
+  

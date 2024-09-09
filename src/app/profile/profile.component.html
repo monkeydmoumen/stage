@@ -1,0 +1,29 @@
+<div class="profile-card bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto flex items-center">
+  <img [src]="user.profilePhoto" alt="Profile Picture" class="w-32 h-32 rounded-full">
+  <div class="ml-6">
+    <div *ngIf="!editMode; else editProfile">
+      <p class="text-xl font-semibold">{{ user.username }}</p>
+      <p class="text-sm text-gray-500">CIN: {{ user.cinNumber }}</p>
+      <p class="text-sm text-gray-500">Role: {{ user.role }}</p>
+      <p class="text-sm">Email: {{ user.email }}</p>
+      <p class="text-sm">{{ user.description }}</p>
+      <button (click)="toggleEdit()" class="mt-4 p-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+        Update Profile
+      </button>
+    </div>
+    <ng-template #editProfile>
+      <input type="file" (change)="onProfilePicSelected($event)">
+      <input [(ngModel)]="user.username" class="mt-4 p-2 border rounded-lg w-full" placeholder="Username">
+      <input [(ngModel)]="user.cinNumber" class="mt-4 p-2 border rounded-lg w-full" placeholder="CIN" disabled>
+      <input [(ngModel)]="user.email" class="mt-4 p-2 border rounded-lg w-full" placeholder="Email">
+      <textarea [(ngModel)]="user.description" class="mt-4 p-2 border rounded-lg w-full" placeholder="Describe yourself..."></textarea>
+      <input [(ngModel)]="newPassword" type="password" class="mt-4 p-2 border rounded-lg w-full" placeholder="New Password">
+      <button (click)="saveChanges()" class="mt-4 p-2 rounded-lg bg-green-600 text-white hover:bg-green-700">
+        Save Changes
+      </button>
+      <button (click)="toggleEdit()" class="mt-2 p-2 rounded-lg bg-gray-400 text-white hover:bg-gray-500">
+        Cancel
+      </button>
+    </ng-template>
+  </div>
+</div>

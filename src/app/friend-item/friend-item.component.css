@@ -1,0 +1,29 @@
+/* List Item */
+.border-gray-200 {
+    border-color: #e5e7eb; /* Light gray */
+  }
+  
+  .rounded-lg {
+    border-radius: 0.5rem;
+  }
+  
+  .hover\:bg-green-100:hover {
+    background-color: #f0fdfa; /* Very light green */
+  }
+  
+  .transition-colors {
+    transition: background-color 0.3s;
+  }
+  
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  
+  .text-md {
+    font-size: 1rem;
+  }
+  
+  .text-gray-800 {
+    color: #1f2937; /* Dark gray */
+  }
+  

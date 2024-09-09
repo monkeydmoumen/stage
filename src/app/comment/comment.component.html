@@ -1,0 +1,29 @@
+<div [attr.data-comment-id]="comment.id" [style.marginLeft.px]="level * 20"> <!-- Indent based on level -->
+  <span class="thread-collapse-btn" (click)="toggleCollapse()">[{{ isHidden ? '+' : '-' }}]</span>
+  <span *ngIf="isHidden">Comment hidden</span>
+  <span *ngIf="!isHidden">
+    <span class="comment-body">
+      "{{ (trimmedBody(comment.content) + bodySuffix(comment.content.length)).trim() }}"
+    </span>
+    : <span class="comment-author">{{ comment.username }}</span>
+    <span class="comment-timestamp">{{ getRelativeTime(comment.date) }}</span>
+    <span *ngIf="allowReplies" class="comment-reply-btn" (click)="toggleReplyInput()">[Reply]</span>
+
+    <!-- Reply input field -->
+    <div *ngIf="showReplyInput">
+      <input [(ngModel)]="newReplyContent" placeholder="Write a reply..." class="w-full p-2 border rounded" />
+      <button (click)="submitReply()" class="mt-2 p-2 bg-green-500 text-white rounded">Submit</button>
+    </div>
+
+    <!-- Child Comments -->
+    <div *ngIf="comment.replies.length > 0 && !isHidden">
+      <app-comment
+        *ngFor="let child of comment.replies"
+        [comment]="child"
+        [maxLength]="maxLength"
+        [allowReplies]="allowReplies"
+        [level]="level + 1"> <!-- Increase the level for replies -->
+      </app-comment>
+    </div>
+  </span>
+</div>

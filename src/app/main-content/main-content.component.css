@@ -1,0 +1,66 @@
+/* Ensure the background gradient covers the full screen */
+.bg-gradient-to-br {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header fixed at the top */
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Content wrapper for spacing below the header */
+.content-wrapper {
+  margin-top: 80px; /* Adjust based on header height */
+  padding: 20px;
+}
+
+/* Buttons within the header */
+button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #00a976; /* Darker shade of green for hover effect */
+}
+
+/* Red logout button */
+.bg-red-600 {
+  background-color: #e3342f;
+}
+
+.bg-red-600:hover {
+  background-color: #cc1f1a;
+}
+
+/* Add additional spacing between buttons */
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+/* Ensure the posts and add-post components are above the background */
+.add-post, .post {
+  position: relative;
+  z-index: 20;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+  }
+
+  .space-x-4 > * + * {
+    margin-left: 0.5rem;
+  }
+}

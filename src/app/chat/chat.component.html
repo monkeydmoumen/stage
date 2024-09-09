@@ -1,0 +1,57 @@
+<div class="relative w-full  mx-auto h-[800px] bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col">
+  <!-- Chat Header -->
+  <div class="flex items-center justify-between bg-green-600 text-white p-4 rounded-t-lg">
+    <h2 class="text-xl font-bold">Chat with {{ recipient }}</h2>
+    <button class="text-xl font-semibold" (click)="goBack()">X</button>
+  </div>
+
+  <!-- Chat messages container -->
+  <div #chatContainer (scroll)="onScroll()" class="flex-1 overflow-y-auto p-4 border-b border-gray-300">
+    <ul class="space-y-2">
+      <li *ngFor="let msg of messages" class="flex items-start"
+          [ngClass]="{'flex-row-reverse': msg.sender === username, 'flex-row': msg.sender !== username}">
+        <div class="p-2 rounded-lg message-bubble" 
+             [ngClass]="{'bg-green-600 text-white': msg.sender === username, 'bg-gray-100 text-gray-800': msg.sender !== username}">
+          <span>{{ msg.content }}</span>
+          <div class="text-xs text-gray-500 mt-1">{{ msg.timestamp | date:'short' }}</div>
+          
+          <!-- Display Images -->
+          <div *ngIf="msg.images" class="mt-2 space-y-2">
+            <div *ngFor="let image of msg.images" class="image-container p-2 border border-gray-300 rounded-lg">
+              <img [src]="image.url" [alt]="image.type" class="max-w-[150px] max-h-[150px]"/>
+            </div>
+          </div>
+
+          <!-- Display Videos -->
+          <div *ngIf="msg.videos" class="mt-2 space-y-2">
+            <div *ngFor="let video of msg.videos" class="video-container p-2 border border-gray-300 rounded-lg">
+              <video [src]="video.url" controls class="max-w-[150px] max-h-[150px]"></video>
+            </div>
+          </div>
+
+          <!-- Display Documents -->
+          <div *ngIf="msg.documents" class="mt-2 space-y-2">
+            <div *ngFor="let doc of msg.documents" class="document-container border border-gray-300 p-2 rounded-md">
+              <a [href]="doc.url" target="_blank">{{ doc.name }}</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Chat Input Area -->
+  <div class="flex items-center p-4 border-t border-gray-300">
+    <input [(ngModel)]="message" placeholder="Type a message" class="flex-1 p-2 border border-gray-300 rounded-lg mr-2" />
+    
+    <!-- "+" Button for File Upload -->
+    <button (click)="fileInput.click()" class="bg-green-600 text-white px-4 py-2 rounded-lg mr-2">
+      +
+    </button>
+    
+    <!-- Hidden File Input -->
+    <input type="file" #fileInput (change)="onFileSelected($event)" multiple class="hidden"/>
+    
+    <button (click)="sendMessage()" class="bg-green-600 text-white px-4 py-2 rounded-lg">Send</button>
+  </div>
+</div>

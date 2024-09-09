@@ -1,0 +1,52 @@
+/* Friends List Header */
+.bg-green-600 {
+  background-color: #007f3b; /* Dark green */
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+/* Ensure the friends list takes full height */
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-l-lg {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+/* List items styling */
+.space-y-2 > * + * {
+  margin-top: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* Adjust list item hover effect for green theme */
+.friend-item:hover {
+  background-color: #a3f3bb; /* Lime green on hover */
+  transition: background-color 0.3s;
+}

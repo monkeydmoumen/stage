@@ -1,0 +1,75 @@
+/* comment.component.css */
+
+/* Comment Container */
+.comment-container {
+  margin-bottom: 10px;
+  padding-left: 20px; /* Indent the comment */
+  border-left: 2px solid #d1d5db; /* Subtle left border */
+}
+
+/* Collapse Button */
+.thread-collapse-btn {
+  cursor: pointer;
+  margin-right: 5px;
+  color: #004d00; /* Dark green */
+}
+
+/* Comment Body */
+.comment-body {
+  font-weight: bold;
+  color: #333; /* Dark text color */
+}
+
+/* Comment Author */
+.comment-author {
+  color: #004d00; /* Dark green */
+}
+
+/* Comment Timestamp */
+.comment-timestamp {
+  font-size: 0.8em;
+  color: #6b7280; /* Light gray */
+}
+
+/* Reply Button */
+.comment-reply-btn {
+  cursor: pointer;
+  color: #004d00; /* Dark green */
+  margin-left: 10px;
+}
+
+/* Reply Input Field */
+.comment-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db; /* Light border */
+  border-radius: 4px;
+}
+
+.comment-container button {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: #004d00; /* Dark green */
+  color: #ffffff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Smooth transition */
+}
+
+.comment-container button:hover {
+  background-color: #007bff; /* Greenish-blue */
+  border-color: #007bff; /* Greenish-blue border on hover */
+  color: #ffffff; /* White text color on hover */
+}
+
+.comment-container button:active {
+  background-color: #003d00; /* Slightly darker dark green when active */
+  border-color: #003d00; /* Slightly darker dark green border when active */
+}
+
+/* Nested Replies */
+.nested-replies {
+  margin-left: 20px; /* Indent further for nested replies */
+  border-left: 2px solid #d1d5db; /* Light border */
+}

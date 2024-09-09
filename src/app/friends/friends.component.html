@@ -1,0 +1,11 @@
+<!-- Friends List -->
+<div class="h-full w-full bg-white shadow-lg rounded-l-lg overflow-auto">
+  <h3 class="text-lg font-semibold p-4 bg-green-600 text-white rounded-t-lg">Friends</h3>
+  <ul class="space-y-2 p-4">
+    <friend-item *ngFor="let friend of friends" 
+                 [username]="friend.username"
+                 [profilePic]="friend.profilePic"
+                 (select)="onFriendSelect($event)">
+    </friend-item>
+  </ul>
+</div>

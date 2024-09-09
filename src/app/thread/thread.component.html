@@ -1,0 +1,7 @@
+<div *ngFor="let comment of filteredComments">
+  <app-comment
+    [comment]="comment"
+    [maxLength]="maxLength"
+    [allowReplies]="allowReplies"
+    [level]="0"> <!-- Start at level 0 for top-level comments -->
+  </app-comment>

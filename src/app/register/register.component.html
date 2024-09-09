@@ -1,0 +1,55 @@
+<div class="register-form bg-gradient-to-br from-lime-300 to-green-700 p-8 rounded-lg shadow-lg max-w-md mx-auto">
+  <h2 class="text-2xl font-bold text-white mb-6">Register</h2>
+  <form (ngSubmit)="register()">
+    <div class="mb-4">
+      <label for="username" class="block text-gray-200 text-sm font-medium mb-2">Username</label>
+      <input type="text" id="username" [(ngModel)]="username" name="username" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+
+    <div class="mb-4">
+      <label for="prenom" class="block text-gray-200 text-sm font-medium mb-2">Prenom</label>
+      <input type="text" id="prenom" [(ngModel)]="prenom" name="prenom" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+    <div class="mb-4">
+      <label for="cin" class="block text-gray-200 text-sm font-medium mb-2">CIN Number</label>
+      <input type="text" id="cin" [(ngModel)]="cin" name="cin" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+    <div class="mb-4">
+      <label for="role" class="block text-gray-200 text-sm font-medium mb-2">Role</label>
+      <select id="role" [(ngModel)]="role" name="role" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+        <option value="" disabled>Select a role</option>
+        <option value="r1">Role 1</option>
+        <option value="r2">Role 2</option>
+        <option value="r3">Role 3</option>
+        <option value="r4">Role 4</option>
+        <option value="boss">Boss</option>
+      </select>
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="block text-gray-200 text-sm font-medium mb-2">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+
+    <div class="mb-4">
+      <label for="phone" class="block text-gray-200 text-sm font-medium mb-2">Phone</label>
+      <input type="text" id="phone" [(ngModel)]="phone" name="phone" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+
+    <div class="mb-6">
+      <label for="password" class="block text-gray-200 text-sm font-medium mb-2">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required 
+        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300 focus:border-transparent">
+    </div>
+
+    <button type="submit" class="w-full py-2 px-4 bg-lime-500 text-white rounded-lg hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-lime-300 focus:ring-opacity-50">
+      Register
+    </button>
+  </form>
+</div>
